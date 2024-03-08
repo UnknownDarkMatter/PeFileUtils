@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="PeFileUtils.UI.HexBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             x:Name="uc">
+    <TextBox Name="txbHexByte" 
+             Text="{Binding Path=HexByte, ElementName=uc, Mode=OneWay}"
+             Tag="{Binding Path=HexByte, ElementName=uc}"
+             IsReadOnly="True" MouseDown="txbHexByte_MouseDown"
+             >
+        <TextBox.ContextMenu>
+            <ContextMenu >
+                <MenuItem Name="cxmEdit" Header="Edit" 
+                          Click="Edit_OnClick" 
+                          CommandParameter="{Binding PlacementTarget, 
+                                RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}" />
+
+                <MenuItem Name="cxmShowByteInfoNumber1" Header="Show info 1" 
+                          Click="ShowByteInfoNumber1_OnClick" 
+                          CommandParameter="{Binding PlacementTarget, 
+                                RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}" />
+
+                <MenuItem Name="cxmShowByteInfoNumber2" Header="Show info 2" 
+                          Click="ShowByteInfoNumber2_OnClick" 
+                          CommandParameter="{Binding PlacementTarget, 
+                                RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}" />
+            </ContextMenu>
+        </TextBox.ContextMenu>
+    </TextBox>
+</UserControl>
